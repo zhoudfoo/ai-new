@@ -12,5 +12,5 @@ jobs:
         run: |
           curl -X POST "https://z5skwct397.coze.site/webhook_run" \
             -H "Content-Type: application/json" \
-            -H "X-API-Key: ${{ secrets.COZE_API_KEY }}" \
+            -H "Authorization: Bearer sat_02JfVUWdIxVva82QOdJY5k96ALLLuLHE55FCxA1ITlqLdodLLPLt1Brq7NZ1YS3L" \
             -d '{"search_query": "AI行业最新新闻"}'
