@@ -1,7 +1,7 @@
 name: AI新闻定时推送
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * *'  # 每天UTC 0:00 = 北京时间8:00
   workflow_dispatch:
 
 jobs:
@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: 触发AI新闻工作流
         run: |
-          curl -X POST "https://z5skwct397.coze.site/webhook_run" \
-            -H "Content-Type: application/json" \
-            -d '{"search_query": "AI行业最新新闻"}'
+          curl --location --request POST 'https://z5skwct397.coze.site/run' \
+            --header 'Authorization: Bearer ${{ secrets.COZE_API_TOKEN }}' \
+            --header 'Content-Type: application/json' \
+            --data '{"search_query":"AI行业最新新闻"}'
